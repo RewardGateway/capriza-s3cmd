@@ -1,16 +1,12 @@
 # Install class
 class s3cmd::install (){
-
-    if ( $::osfamily == 'redhat' ) {
-        file {'/etc/yum.repos.d/s3tools.repo':
-            source => 'puppet:///modules/s3cmd/etc/yum.repos.d/s3tools.repo',
-        }
-    $s3cmd_require = File['/etc/yum.repos.d/s3tools.repo']
-    } else {
-        $s3cmd_require = undef
+    $s3cmd_version = '1.6.1'
+    exec { 'Uninstall s3cmd apt version' :
+        command => '/usr/bin/apt purge s3cmd',
     }
-    package {'s3cmd':
-        ensure  => installed,
-        require => $s3cmd_require,
+    ->
+    package { 's3cmd' :
+        ensure   => $s3cmd_version,
+        provider => 'pip',
     }
 }
