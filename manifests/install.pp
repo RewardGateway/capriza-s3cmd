@@ -1,7 +1,7 @@
 # Install class
 class s3cmd::install (
-    $s3cmd_version  = latest,
-    $s3cmd_provider = 'apt',
+    $s3cmd_version,
+    $s3cmd_provider,
     ){
     package { 's3cmd' :
         ensure   => $s3cmd_version,

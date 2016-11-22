@@ -4,8 +4,8 @@ class s3cmd (
     $aws_secret_key,
     $gpg_passphrase,
     $owner,
-    $s3cmd_version,
-    $s3cmd_provider,
+    $s3cmd_version  = latest,
+    $s3cmd_provider =, 'apt',
 )
 {
     class{'s3cmd::install':
