@@ -7,7 +7,7 @@ class s3cmd::config (
 ) {
     $homedir = $owner ? {
         root    => '/root',
-        default => '/home/$owner',
+        default => "/home/${owner}",
     }
     file{"${homedir}/.s3cfg":
         owner   => $owner,
