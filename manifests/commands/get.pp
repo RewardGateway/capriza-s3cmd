@@ -8,7 +8,6 @@ define s3cmd::commands::get(
         root    => '/root',
         default => "/home/${owner}",
     }
-    $testvar = $name
     exec { $name :
         command => "s3cmd get -c ${homedir}/.s3cfg ${s3_object} ${name}",
         path    => ['/usr/local/bin','/usr/bin'],
