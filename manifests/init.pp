@@ -5,7 +5,7 @@ class s3cmd (
     $gpg_passphrase,
     $owner,
     $s3cmd_version  = latest,
-    $s3cmd_provider =, 'apt',
+    $s3cmd_provider = 'apt',
 )
 {
     class{'s3cmd::install':
